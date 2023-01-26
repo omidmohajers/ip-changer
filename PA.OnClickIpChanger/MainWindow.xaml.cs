@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PA.IPChanger;
+using PA.OnClickIpChanger.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,15 @@ namespace PA.OnClickIpChanger
         public MainWindow()
         {
             InitializeComponent();
+            Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
+            IPSettingListManagerViewModel model = new IPSettingListManagerViewModel();
+            this.DataContext = model;
+        }
+
+        private void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
+            e.Handled = true;
         }
     }
 }
