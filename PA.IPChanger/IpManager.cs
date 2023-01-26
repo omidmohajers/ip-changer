@@ -9,6 +9,7 @@ namespace PA.IPChanger
 {
     public static class IPManager
     {
+        #region Methods
         public static List<string> GetNetAdapterCaptions()
         {
             ManagementClass objMC =
@@ -77,7 +78,6 @@ namespace PA.IPChanger
                 }
             }
         }
-
         public static List<IPProfile> Parse(string[] lines)
         {
             List<IPProfile> result = new List<IPProfile>();
@@ -89,7 +89,6 @@ namespace PA.IPChanger
             }
             return result;
         }
-
         public static void SetGatewayToAll(string gateway)
         {
             ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
@@ -110,7 +109,6 @@ namespace PA.IPChanger
                 }
             }
         }
-
         public static void SetDNS(string NIC, string DNS)
         {
             ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
@@ -135,7 +133,6 @@ namespace PA.IPChanger
                 }
             }
         }
-
         public static void SetWINS(string NIC, string priWINS, string secWINS)
         {
             ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
@@ -158,5 +155,6 @@ namespace PA.IPChanger
                 }
             }
         }
+        #endregion Methods
     }
 }

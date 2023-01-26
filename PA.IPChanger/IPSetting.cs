@@ -9,6 +9,7 @@ namespace PA.IPChanger
 {
     public class IPProfile : ICloneable
     {
+        #region properties
         public string IP { get; set; }
         public string Subnet { get; set; }
         public string Getway { get; set; }
@@ -24,7 +25,21 @@ namespace PA.IPChanger
         }
         public string NIC { get; set; }
         public string Name { get; set; }
-
+        #endregion
+        public IPProfile()
+        {
+            this.IP = IPAddress.Any.ToString();
+            this.Subnet = IPAddress.Broadcast.ToString();
+            this.Getway = IPAddress.Any.ToString();
+            this.Dns1 = "4.2.2.4";
+            this.Dns2 = "8.8.8.8";
+            this.Win1 = IPAddress.Any.ToString();
+            this.Win2 = IPAddress.Any.ToString();
+            this.DHCPEnabled = false;
+            this.NIC = "";
+            this.Name = "setting";
+        }
+        #region public methods
         public object Clone()
         {
             IPProfile instance = new IPProfile()
@@ -55,7 +70,6 @@ namespace PA.IPChanger
             this.NIC = instance.NIC;
             this.Name = instance.Name;
         }
-
         public void Validate()
         {
 
@@ -89,18 +103,6 @@ namespace PA.IPChanger
             data[9] = Name;
             return string.Join(",", data);
         }
-        public IPProfile()
-        {
-            this.IP = IPAddress.Any.ToString();
-            this.Subnet = IPAddress.Broadcast.ToString();
-            this.Getway = IPAddress.Any.ToString();
-            this.Dns1 = "4.2.2.4";
-            this.Dns2 = "8.8.8.8";
-            this.Win1 = IPAddress.Any.ToString();
-            this.Win2 = IPAddress.Any.ToString();
-            this.DHCPEnabled = false;
-            this.NIC = "";
-            this.Name = "setting";
-        }
+        #endregion
     }
 }

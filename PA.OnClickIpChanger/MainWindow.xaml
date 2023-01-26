@@ -3,22 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PA.OnClickIpChanger"
+        xmlns:viewmodels="clr-namespace:PA.OnClickIpChanger.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:IPSettingListManagerViewModel}"
         mc:Ignorable="d"
         Title="IP Manager System" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
-        <!--<Style x:Key="CardItemStyle" TargetType="{x:Type ListViewItem}">
-            <Setter Property="Margin" Value="5,5,5,5"/>
-            <Setter Property="Padding" Value="0,0,0,0"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate  TargetType="{x:Type ListViewItem}">
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>-->
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>

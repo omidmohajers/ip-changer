@@ -14,6 +14,7 @@ namespace PA.OnClickIpChanger.ViewModels
     {
         private string db = ".\\setting.txt";
         IPSettingWindow settingWindow = null;
+        #region properties
         public DelegateCommand AddCommand { get; private set; }
         public DelegateCommand EditCommand { get; private set; }
         public DelegateCommand RemoveCommand { get; private set; }
@@ -24,6 +25,7 @@ namespace PA.OnClickIpChanger.ViewModels
         public ObservableCollection<IPProfile> Data { get; private set; }
         public IPProfile SelectedProfile { get; set; }
         public bool Changed { get; private set; }
+        #endregion
         public IPSettingListManagerViewModel()
         {
             Data = new ObservableCollection<IPProfile>();
@@ -37,6 +39,7 @@ namespace PA.OnClickIpChanger.ViewModels
             InitilizeData();
         }
 
+        #region private methods
         private void ApplyIP()
         {
             if (SelectedProfile == null)
@@ -85,6 +88,39 @@ namespace PA.OnClickIpChanger.ViewModels
                     Data.Add(ip);
             }
         }
+        private void Model_Closed(object sender, EventArgs e)
+        {
+            if (settingWindow != null)
+            {
+                IPSettingViewModel model = sender as IPSettingViewModel;
+                if (model.Result)
+                {
+                    if (model.IsNew)
+                    {
+                        SaveAsNew(model.Setting);
+                    }
+                    else
+                    {
+                        UpdateSelected(model.Setting);
+                    }
+                }
+                settingWindow.Close();
+            }
+        }
+        private void UpdateSelected(IPProfile setting)
+        {
+            Data.Remove(SelectedProfile);
+            Data.Add(setting);
+            RaisePropertyChanged("Data");
+
+        }
+        private void SaveAsNew(IPProfile setting)
+        {
+            Data.Add(setting);
+            SelectedProfile = Data.Last();
+        }
+        #endregion
+        #region public methods
         public void Add()
         {
             IPSettingViewModel model = new IPSettingViewModel(new IPProfile(), true,IPManager.GetNetAdapterCaptions());
@@ -99,41 +135,6 @@ namespace PA.OnClickIpChanger.ViewModels
             };
             settingWindow.ShowDialog();
         }
-
-        private void Model_Closed(object sender, EventArgs e)
-        {
-            if (settingWindow != null)
-            {
-                IPSettingViewModel model = sender as IPSettingViewModel;
-                if(model.Result)
-                {
-                    if (model.IsNew)
-                    {
-                        SaveAsNew(model.Setting);
-                    }
-                    else
-                    {
-                        UpdateSelected(model.Setting);
-                    }
-                }
-                settingWindow.Close();
-            }
-        }
-
-        private void UpdateSelected(IPProfile setting)
-        {
-            Data.Remove(SelectedProfile);
-            Data.Add(setting);
-            RaisePropertyChanged("Data");
-
-        }
-
-        private void SaveAsNew(IPProfile setting)
-        {
-            Data.Add(setting);
-            SelectedProfile = Data.Last();
-        }
-
         public void Edit()
         {
             if (SelectedProfile == null)
@@ -157,5 +158,6 @@ namespace PA.OnClickIpChanger.ViewModels
                 return;
             Data.Remove(SelectedProfile);
         }
+        #endregion
     }
 }

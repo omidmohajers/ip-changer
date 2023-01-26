@@ -9,13 +9,15 @@ namespace PA.OnClickIpChanger.ViewModels
 {
     public class IPSettingViewModel : BindableBase
     {
+        public event EventHandler Closed;
+        #region properties
         public List<string> Devices { get; private set; }
         public DelegateCommand SaveCommand { get; private set; }
         public DelegateCommand CloseCommand { get; private set; }
         public IPProfile Setting { get; set; }
         public bool IsNew { get; private set; }
         public virtual bool Result { get; set; }
-        public event EventHandler Closed;
+        #endregion
         public IPSettingViewModel(IPProfile instance, bool isNew,List<String> devices)
         {
             Devices = devices;
@@ -24,6 +26,7 @@ namespace PA.OnClickIpChanger.ViewModels
             Setting = instance;
             IsNew = isNew;
         }
+        #region public methods
         public void Save()
         {
             Setting.Validate();
@@ -34,5 +37,6 @@ namespace PA.OnClickIpChanger.ViewModels
         {
             Closed?.Invoke(this, EventArgs.Empty);
         }
+        #endregion
     }
 }

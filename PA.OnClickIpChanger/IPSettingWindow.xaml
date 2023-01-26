@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PA.OnClickIpChanger" xmlns:ip="clr-namespace:IPUserControls;assembly=IPUserControls"
+        xmlns:local="clr-namespace:PA.OnClickIpChanger" xmlns:ip="clr-namespace:IPUserControls;assembly=IPUserControls" 
+        xmlns:viewmodels="clr-namespace:PA.OnClickIpChanger.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:IPSettingViewModel}"
         mc:Ignorable="d" Closed="Window_Closed"
         Title="IP Setting" Height="550" Width="300">
     <Grid>
@@ -21,8 +22,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Use Static IP" VerticalAlignment="Center" Margin="10,10,10,11"/>
-        <CheckBox IsChecked="{Binding Setting.IsStatic,Mode=TwoWay}" x:Name="dhcpCheckbox" Grid.Column="1" Margin="10,16" VerticalAlignment="Center" />
-        <GroupBox x:Name="ipConfigGroupBox" IsEnabled="{Binding Setting.IsStatic}" Header=" [IP Configuration] " Grid.Row="1" Grid.ColumnSpan="2" Margin="10">
+        <CheckBox IsChecked="{Binding Setting.IsStatic,Mode=TwoWay}" x:Name="dhcpCheckbox" Grid.Column="1" Margin="10,16" 
+                  VerticalAlignment="Center" />
+        <GroupBox x:Name="ipConfigGroupBox" IsEnabled="{Binding Setting.IsStatic}" Header=" [IP Configuration] " 
+                  Grid.Row="1" Grid.ColumnSpan="2" Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="46"/>

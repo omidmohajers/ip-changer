@@ -7,19 +7,54 @@
              d:DesignHeight="250" d:DesignWidth="150">
     <Border Background="White" BorderBrush="#FFD3D2D2" BorderThickness="3" CornerRadius="5">
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="My Default Setting" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="LAN" Margin="5 0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Border BorderThickness="1" BorderBrush="#FFD3D2D2" Margin="10 0" />
-            <TextBlock Text="IP/Subnet/Getway" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="192.168.1.24" Margin="5 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="255.255.255.0" Margin="5 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="192.168.1.1" Margin="5 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Border BorderThickness="1" BorderBrush="#FFD3D2D2" Margin="10 5" />
-            <TextBlock Text="Primary/Secandary DNS" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="1.1.1.1" Margin="5 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="1.0.0.1" Margin="5 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Border BorderThickness="1" BorderBrush="#FFD3D2D2" Margin="10 5" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="My Default Setting" 
+                       Margin="5" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="LAN" 
+                       Margin="5 0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <Border BorderThickness="1" 
+                    BorderBrush="#FFD3D2D2" 
+                    Margin="10 0" />
+            <TextBlock Text="IP/Subnet/Getway" 
+                       Margin="5" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="192.168.1.24" 
+                       Margin="5 0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="255.255.255.0" 
+                       Margin="5 0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="192.168.1.1" 
+                       Margin="5 0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <Border BorderThickness="1" 
+                    BorderBrush="#FFD3D2D2" 
+                    Margin="10 5" />
+            <TextBlock Text="Primary/Secandary DNS" 
+                       Margin="5" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="1.1.1.1" 
+                       Margin="5 0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="1.0.0.1" 
+                       Margin="5 0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+            <Border BorderThickness="1" 
+                    BorderBrush="#FFD3D2D2" 
+                    Margin="10 5" />
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
                 <Button Content="Apply" Margin="5" Padding="5" Width="50" />
                 <Button Content="Edit" Margin="5" Padding="5" Width="50" />
             </StackPanel>
